@@ -54,7 +54,7 @@
         if(getCookie("apiKey")!=undefined){
           $.ajax({
             type: "GET",
-            url: "https://preview.oddz.com/api/v1/account?apiKey="+getCookie("apiKey")+"&sessionId="+getCookie("sessionKey")+"&api_key=special-key",
+            url: "https://preview.oddz.com/api/v1/account?apiKey="+getCookie("apiKey")+"&sessionId="+getCookie("sessionKey")+"&api_key=oddz-hexagame-preview-com-sandbox",
             dataType: 'json',
             error: function(xhr, textStatus, error) {
               showCAS();
@@ -73,7 +73,7 @@
       function initSwaggerUi(){
         window.swaggerUi = new SwaggerUi({
           discoveryUrl:"https://preview.oddz.com/api/v1/api-docs/resources.json",
-          apiKey:"special-key",
+          apiKey:"oddz-hexagame-preview-com-sandbox",
           dom_id:"swagger-ui-container",
           supportHeaderParams: false,
           supportedSubmitMethods: ['get', 'post', 'put'],
@@ -177,8 +177,8 @@
           <div class='input icon-btn'>
             <img id="show-wordnik-dev-icon" src="images/wordnik_api.png" title="Show Wordnik Developer Apis">
           </div>
-          <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
-          <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
+          <div class='input'><input placeholder="https://preview.oddz.com/api/v1/api-docs/resources.json" id="input_baseUrl" name="baseUrl" type="text"/></div>
+          <div class='input'><input placeholder="oddz-hexagame-preview-com-sandbox" id="input_apiKey" name="apiKey" type="text"/></div>
           <div class='input'><a id="explore" href="#">Explore</a></div>
         </form>
       </div>

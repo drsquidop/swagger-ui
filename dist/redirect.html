@@ -33,7 +33,8 @@
       function getApi()
       {
 	      var inv = new SwaggerApi(
-	      {   apiKey: 'oddz-hexagame-preview-com',
+	      {   apiKey: 'oddz-hexagame-preview-com-sandbox',
+              discoveryUrl: "https://preview.oddz.com/api/v1/api-docs/resources.json",
 	          verbose: true,
 	          async: false, 
 	          success: function()
@@ -79,7 +80,7 @@
       {
 	      var exdate=new Date();
 	      //exdate.setDate(exdate.getDate() + exdays);
-        exdays = 5 (hours) * 60 (minutes) * 60 (seconds);
+        exdays = 5  * 60 * 60 ;
         exdate.setTime(exdate.getTime() + exdays);
 	      var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
 	      document.cookie=c_name + "=" + c_value;

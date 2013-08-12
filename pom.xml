@@ -77,10 +77,11 @@
 						    <filtering>true</filtering>
 							<directory>dist</directory>
 						    <includes>
-								<include>**/*.html</include>
+								<include>**/*.*</include>
 								<!-- include any other file types you want to filter -->
 							</includes>
 						</resource>
+						
 					</webResources>
 				</configuration>
 			</plugin>

@@ -54,7 +54,7 @@
         if(getCookie("apiKey")!=undefined){
           $.ajax({
             type: "GET",
-            url: "https://preview.oddz.com/api/v1/account?apiKey="+getCookie("apiKey")+"&sessionId="+getCookie("sessionKey")+"&api_key=oddz-hexagame-preview-com-sandbox",
+            url: "${api.url}/v1/account?apiKey="+getCookie("apiKey")+"&sessionId="+getCookie("sessionKey")+"&api_key=${api.key}",
             dataType: 'json',
             error: function(xhr, textStatus, error) {
               showCAS();
@@ -72,8 +72,8 @@
 
       function initSwaggerUi(){
         window.swaggerUi = new SwaggerUi({
-          discoveryUrl:"https://preview.oddz.com/api/v1/api-docs/resources.json",
-          apiKey:"oddz-hexagame-preview-com-sandbox",
+          discoveryUrl:"${api.url}/v1/api-docs/resources.json",
+          apiKey:"${api.key}",
           dom_id:"swagger-ui-container",
           supportHeaderParams: false,
           supportedSubmitMethods: ['get', 'post', 'put'],
@@ -98,8 +98,8 @@
       }
 
       function showCAS()
-      { 
-	      window.location = "https://preview.oddz.com/cas?service=https://preview.oddz.com/sandbox/redirect.html"
+      {
+	      window.location = "${cas.url}?service=https://${hostName}/sandbox/redirect.html"
       }
 
       function getCookie(c_name)
@@ -127,8 +127,8 @@
 	      return c_value;
 	    }
 
-      function loadTicket(){ 
-        
+      function loadTicket(){
+
         var el_api_key = document.getElementsByName("apiKey");
         var el_session_id = document.getElementsByName("sessionId");
         var el_access_token = document.getElementsByName("accessToken");
@@ -147,7 +147,7 @@
 	        document.getElementsByName("accessToken")[l].value = accessToken;
         }
       }
-      
+
       function deleteAllCookies() {
         var cookies = document.cookie.split(";");
 
@@ -161,7 +161,7 @@
 
       function logout(){
         deleteAllCookies();
-        window.location.href="https://preview.oddz.com/cas/logout"
+        window.location.href="${cas.url}/logout"
       }
     </script>
   </head>
@@ -177,16 +177,16 @@
           <div class='input icon-btn'>
             <img id="show-wordnik-dev-icon" src="images/wordnik_api.png" title="Show Wordnik Developer Apis">
           </div>
-          <div class='input'><input placeholder="https://preview.oddz.com/api/v1/api-docs/resources.json" id="input_baseUrl" name="baseUrl" type="text"/></div>
-          <div class='input'><input placeholder="oddz-hexagame-preview-com-sandbox" id="input_apiKey" name="apiKey" type="text"/></div>
+          <div class='input'><input placeholder="${api.url}/v1/api-docs/resources.json" id="input_baseUrl" name="baseUrl" type="text"/></div>
+          <div class='input'><input placeholder="${api.key}" id="input_apiKey" name="apiKey" type="text"/></div>
           <div class='input'><a id="explore" href="#">Explore</a></div>
         </form>
       </div>
-</div>  
+</div>
       <div id="message-bar" class="swagger-ui-wrap">
         &nbsp;
       </div>
       <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
-    
+
   </body>
 </html>

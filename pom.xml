@@ -74,7 +74,12 @@
 				<failOnMissingWebXml>false</failOnMissingWebXml>
 					<webResources>
 						<resource>
+						    <filtering>true</filtering>
 							<directory>dist</directory>
+						    <includes>
+								<include>**/*.html</include>
+								<!-- include any other file types you want to filter -->
+							</includes>
 						</resource>
 					</webResources>
 				</configuration>
@@ -83,6 +88,18 @@
   </plugins>
   
   </build>
+  <profiles>
+  <profile>
+			<id>preview</id>
+			<properties>
+				<hostName>preview.oddz.com</hostName>
+				<cas.url>https://preview.oddz.com/cas</cas.url>
+				<api.url>https://preview.oddz.com/api</api.url>
+				<api.key>oddz-hexagame-preview-com-sandbox</api.key>
+				
+			</properties>
+		</profile>
+  </profiles>
   <repositories>
 		<repository>
 			<id>gpn-test</id>

@@ -32,7 +32,7 @@
 					</deployables>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
@@ -41,10 +41,10 @@
 					<webApp>
 					   <contextPath>/sandbox</contextPath>
 					</webApp>
-      							
+
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
 				<configuration>
@@ -81,32 +81,41 @@
 								<!-- include any other file types you want to filter -->
 							</includes>
 						</resource>
-						
+
 					</webResources>
 				</configuration>
 			</plugin>
-  
+
   </plugins>
-  
+
   </build>
   <profiles>
-  <profile>
+    <profile>
 			<id>preview</id>
 			<properties>
 				<hostName>preview.oddz.com</hostName>
 				<cas.url>https://preview.oddz.com/cas</cas.url>
 				<api.url>https://preview.oddz.com/api</api.url>
 				<api.key>oddz-hexagame-preview-com-sandbox</api.key>
-				
+
 			</properties>
 		</profile>
+    <profile>
+      <id>uat</id>
+      <properties>
+              <hostName>uat.oddz.com</hostName>
+              <cas.url>https://uat.oddz.com/cas</cas.url>
+              <api.url>https://uat.oddz.com/api</api.url>
+              <api.key>oddz-hexagame-uat-com-sandbox</api.key>
+      </properties>
+    </profile>
   </profiles>
   <repositories>
 		<repository>
 			<id>gpn-test</id>
 			<url>http://uat.oddz.int/maven</url>
 		</repository>
-		<repository>  
+		<repository>
 			<id>maven-restlet</id>
 			<name>Public online Restlet repository</name>
 			<url>http://maven.restlet.org</url>
